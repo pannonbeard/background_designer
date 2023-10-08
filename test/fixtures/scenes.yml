@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: scenes
+#
+#  id         :integer          not null, primary key
+#  title      :string
+#  slug       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+one:
+  title: MyString
+  slug: MyString
+
+two:
+  title: MyString
+  slug: MyString

@@ -1,0 +1,11 @@
+<div class='viewer'>
+  <% @scene.layers.each do |layer| %>
+    <% if layer.asset.content_type.include?('video') %>
+      <div class='view-scene-layer'>
+        <video src="<%= layer.asset.url %>" muted loop autoplay>
+      </div>
+    <% else %>
+      <div class='view-scene-layer' style='background-image: url("<%= layer.asset.url %>")'></div>
+    <% end %>
+  <% end %>
+</div>

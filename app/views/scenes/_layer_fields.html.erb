@@ -1,0 +1,6 @@
+<div class='nested-fields layer-fields'>
+  <%= f.input :asset, input_html: { accept: 'video/*, image/png, image/jpg, image/jpeg' } %>
+  <%= f.input :stack, as: :hidden %>
+
+  <%= link_to_remove_association "X", f, class: 'btn' %>
+</div>

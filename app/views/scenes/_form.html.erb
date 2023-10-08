@@ -1,0 +1,21 @@
+<div class='scene-form'>
+  <div class='scene-preview'>
+  
+  </div>
+
+  <%= simple_form_for @scene, url: @scene.new_record? ? scenes_path : scene_path(@scene), html: { class: "scene-options"} do |f| %>
+    <%= f.input :title %>
+    <%= f.input :slug %>
+    <hr />
+    <div class='links'>
+      Layers <%= link_to_add_association '+', f, :layers, "data-association-insertion-node": '.scene-layers', "data-association-insertion-method": 'append', class: "btn" %>
+    </div>
+    <div class='scene-layers'>
+      <% f.simple_fields_for :layers do |layer| %>
+        <%= render 'layer_fields', f: layer %>
+      <% end %>
+      
+    </div>
+    <%= f.submit class: 'btn' %>
+  <% end %>
+</div>

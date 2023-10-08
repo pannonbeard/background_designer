@@ -1,0 +1,37 @@
+.scene-form{
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  height: 100%
+}
+
+.scene-options{
+  background: #ddd;
+  padding: 1rem;
+}
+
+.scene-preview{
+  background: black;
+  position: relative;
+}
+
+.layer-fields {
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+  display: flex;
+}
+
+.scene-preview--layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  & video{
+    height: 100%;
+    filter: chroma(color=#0000ff);
+  }
+}

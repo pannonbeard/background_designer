@@ -1,0 +1,23 @@
+<h1>Scenes</h1>
+<%= link_to 'Create A Scene', new_scene_path, class: 'btn' %>
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Slug</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @scenes.each do |scene| %>
+      <tr>
+        <td><%= scene.title %></td>
+        <td><%= link_to scene.slug, switcher_path(scene_slug: scene.slug), class: "btn" %></td>
+        <td>
+          <%= link_to 'Edit', edit_scene_path(scene), class:"btn" %>
+          <%= link_to 'Destroy', scene, data: { turbo_method: :delete }, class: "btn" %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
