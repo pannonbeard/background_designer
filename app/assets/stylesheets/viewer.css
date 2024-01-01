@@ -9,8 +9,12 @@
 .view-scene-layer{
   position: absolute;
   height: 100%;
+  inset: 0;
   opacity: 0;
   transition: opacity 2.5s ease-in-out;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
   & video{
     height: 100%;
   }

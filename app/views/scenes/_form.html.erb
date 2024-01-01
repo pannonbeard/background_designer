@@ -1,6 +1,14 @@
 <div class='scene-form'>
   <div class='scene-preview'>
-  
+    <% @scene.layers.each do |layer| %>
+      <% if layer.asset.content_type.include?('video') %>
+        <div class='scene-preview--layer' data-layerId='<%= layer.id %>'>
+          <video src="<%= layer.asset.url %>" muted loop autoplay>
+        </div>
+      <% else %>
+        <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>')"></div>
+      <% end %>
+    <% end %>
   </div>
 
   <%= simple_form_for @scene, url: @scene.new_record? ? scenes_path : scene_path(@scene), html: { class: "scene-options"} do |f| %>
@@ -11,10 +19,9 @@
       Layers <%= link_to_add_association '+', f, :layers, "data-association-insertion-node": '.scene-layers', "data-association-insertion-method": 'append', class: "btn" %>
     </div>
     <div class='scene-layers'>
-      <% f.simple_fields_for :layers do |layer| %>
+      <%= f.simple_fields_for :layers do |layer| %>
         <%= render 'layer_fields', f: layer %>
       <% end %>
-      
     </div>
     <%= f.submit class: 'btn' %>
   <% end %>

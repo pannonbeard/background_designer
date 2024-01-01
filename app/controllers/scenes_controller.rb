@@ -1,4 +1,6 @@
 class ScenesController < ApplicationController
+  include ActiveStorage::SetCurrent
+  
   def index
     @scenes = Scene.all
   end
