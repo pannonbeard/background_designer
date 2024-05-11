@@ -9,7 +9,7 @@ set :repo_url, "https://github.com/pannonbeard/background_designer.git"
 set :branch, 'main'
 
 # Default deploy_to directory is /var/www/my_app_name
-set :deploy_to, "/home/deploy/apps/#{fetch :application}"
+set :deploy_to, "/home/biqu/apps/#{fetch :application}"
 
 # Default value for :format is :airbrussh.
 # set :format, :airbrussh
