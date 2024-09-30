@@ -20,6 +20,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.5rem;
+
+  .file{
+    input{
+      display: none;
+    }
+    label{
+      display: block;
+      background: cornflowerblue;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      border: 2px solid cornflowerblue;
+
+      &:hover{
+        background: white;
+        color: cornflowerblue;
+      }
+    }
+  }
+  
 }
 
 .scene-preview--layer{
@@ -35,5 +56,20 @@
   & video{
     height: 100%;
     filter: chroma(color=#0000ff);
+  }
+}
+
+.shift-stack{
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: grid;
+
+  .shift-up, .shift-down{
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    &:hover{
+      background-color: #ccc;
+    }
   }
 }

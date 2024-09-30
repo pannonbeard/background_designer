@@ -13,8 +13,9 @@
     <% @scenes.each do |scene| %>
       <tr>
         <td><%= scene.title %></td>
-        <td><%= link_to scene.slug, switcher_path(scene_slug: scene.slug), class: "btn" %></td>
+        <td><%= link_to scene.slug, switcher_path(scene_slug: scene.slug), class: "btn", data: { turbo: false } %></td>
         <td>
+          <%= button_to 'Duplicate', duplicate_scene_path(scene), class: "btn", method: :post %>
           <%= link_to 'Edit', edit_scene_path(scene), class:"btn" %>
           <%= link_to 'Destroy', scene, data: { turbo_method: :delete }, class: "btn" %>
         </td>

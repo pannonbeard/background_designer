@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_07_214001) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_29_190609) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_07_214001) do
 
   create_table "layers", force: :cascade do |t|
     t.integer "scene_id", null: false
-    t.boolean "stack"
+    t.integer "stack"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["scene_id"], name: "index_layers_on_scene_id"

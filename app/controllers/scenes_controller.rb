@@ -28,9 +28,27 @@ class ScenesController < ApplicationController
     redirect_to scenes_path
   end
 
-  def delete
+  def destroy
     @scene = Scene.find(params[:id])
     @scene.destroy
+
+    redirect_to scenes_path
+  end
+
+  def duplicate
+    @scene = Scene.find(params[:id])
+    @duplicate_scene = @scene.dup
+    @duplicate_scene.title += " (Copy)"
+    @duplicate_scene.save
+
+    @scene.layers.each do |layer|
+      layer_dup = layer.dup
+      @duplicate_scene.layers << layer_dup
+
+      if layer.asset.present?
+        layer_dup.asset.attach layer.asset.blob
+      end
+    end
 
     redirect_to scenes_path
   end
@@ -38,6 +56,6 @@ class ScenesController < ApplicationController
   private
 
   def scene_params
-    params.require(:scene).permit(:slug, :title, layers_attributes: {})
+    params.require(:scene).permit(:slug, :title, layers_attributes: [:id, :_destroy, :asset, :stack])
   end
 end

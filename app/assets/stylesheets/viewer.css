@@ -1,28 +1,32 @@
+.viewer-background{
+  background: black;
+}
+
 .viewer{
   background: black;
+  position: fixed;
+  inset: 0;
   height: 100%;
   width: 100%;
-  position: relative;
   overflow: hidden;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.viewer.show{
+  opacity: 1;
 }
 
 .view-scene-layer{
   position: absolute;
   height: 100%;
+  width: 100%;
   inset: 0;
-  opacity: 0;
-  transition: opacity 2.5s ease-in-out;
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
   & video{
     height: 100%;
-  }
-}
-
-.viewer.show{
-  & .view-scene-layer {
-    opacity: 1;
   }
 }
 

@@ -1,6 +1,14 @@
 <div class='nested-fields layer-fields' data-layerid='<%= f.object.id %>'>
-  <%= f.input :asset, input_html: { accept: 'video/*, image/png, image/jpg, image/jpeg' } %>
-  <%= f.input :stack, as: :hidden %>
+  <div class='shift-stack'>
+    <div class='shift-up'>^</div>
+    <div class='shift-down'>v</div>
+  </div>
+  <% if f.object.id %>
+    <p><%= f.object.asset.filename %></p>
+  <% else%>
+    <%= f.input :asset,  label: 'Add Asset' %>
+  <% end %>
+  <%= f.input :stack %>
 
   <%= link_to_remove_association "X", f, class: 'btn' %>
 </div>

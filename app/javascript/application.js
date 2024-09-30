@@ -11,7 +11,8 @@ const layersList = document.querySelector('.scene-layers')
 const preview = document.querySelector(".scene-preview")
 
 document.addEventListener('cocoon:after-insert', (e) => {
-  const recentLayer = Array.from(layersList.childNodes).pop()
+  let listCount = Array.from(layersList.querySelectorAll('.nested-fields')).length
+  const recentLayer = Array.from(layersList.querySelectorAll('.nested-fields')).pop()
   console.log(recentLayer)
 
   const layerId = generateUUID()
@@ -23,11 +24,14 @@ document.addEventListener('cocoon:after-insert', (e) => {
   recentLayer.querySelector("input").addEventListener("change", (e) => {
     getFileData(e.target, previewLayer)
   })
+
+  console.log(listCount)
+  recentLayer.querySelector('.scene_layers_stack input').value = listCount
 })
 
 document.addEventListener('cocoon:before-remove', (e) => {
   const layerId = e.detail.dataset.layerid
-  document.querySelector(`[data-layerId="${layerId}"]`).remove()
+  // document.querySelector(`[data-layerId="${layerId}"]`).remove()
 })
 
 function addLayerToPreview(layerId){

@@ -4,7 +4,7 @@
 #
 #  id         :integer          not null, primary key
 #  scene_id   :integer          not null
-#  stack      :boolean
+#  stack      :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #

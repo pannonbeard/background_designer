@@ -2,7 +2,12 @@
 #
 
 Rails.application.routes.draw do
-  resources :scenes
+  resources :scenes do
+    member do
+      post :duplicate
+    end
+  end
+  
   get 'switcher', to: 'switcher#index'
   get 'viewer', to: 'viewer#index'
   root "scenes#index"
