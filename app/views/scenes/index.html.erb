@@ -1,25 +1,27 @@
 <h1>Scenes</h1>
 <%= link_to 'Create A Scene', new_scene_path, class: 'btn' %>
 <%= link_to 'Viewer', viewer_path, class: 'btn' %>
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Slug</th>
-      <th>Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @scenes.each do |scene| %>
-      <tr>
-        <td><%= scene.title %></td>
-        <td><%= link_to scene.slug, switcher_path(scene_slug: scene.slug), class: "btn", data: { turbo: false } %></td>
-        <td>
-          <%= button_to 'Duplicate', duplicate_scene_path(scene), class: "btn", method: :post %>
-          <%= link_to 'Edit', edit_scene_path(scene), class:"btn" %>
-          <%= link_to 'Destroy', scene, data: { turbo_method: :delete }, class: "btn" %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+
+<div class='scenes-grid'>
+  <% @scenes.each do |scene| %>
+    <div class='scene-box'>
+      <div class='scene-preview'>
+        <% scene.layers.each do |layer| %>
+          <% if layer.asset.content_type.include?('video') %>
+            <div class='scene-preview--layer' data-layerId='<%= layer.id %>'>
+              <video src="<%= layer.asset.url %>" muted loop autoplay>
+            </div>
+          <% else %>
+            <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>'); background-size: cover"></div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class='scene-buttons'>
+        <button type='button' class='scene-switch-button' data-url='<%= switcher_path(scene_slug: scene.slug) %>'>Switch To</button>
+        <%= button_to 'Duplicate', duplicate_scene_path(scene), class: "btn", method: :post %>
+        <%= link_to 'Edit', edit_scene_path(scene), class:"btn" %>
+        <%= link_to 'Destroy', scene, data: { turbo_method: :delete }, class: "btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>

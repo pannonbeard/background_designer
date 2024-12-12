@@ -73,3 +73,26 @@
     }
   }
 }
+
+
+.scenes-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.scene-box{
+  background: #eee;
+  border: 1px solid black;
+  display: grid;
+}
+
+.scene-preview{
+  min-height: 200px;
+  background: black;
+}
+
+.scene-buttons{
+  padding: 1rem;
+}

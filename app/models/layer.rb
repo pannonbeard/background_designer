@@ -10,6 +10,7 @@
 #
 class Layer < ApplicationRecord
   belongs_to :scene
+  default_scope { order(stack: :asc) }
 
   has_one_attached :asset
 end

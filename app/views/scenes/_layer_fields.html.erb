@@ -4,7 +4,7 @@
     <div class='shift-down'>v</div>
   </div>
   <% if f.object.id %>
-    <p><%= f.object.asset.filename %></p>
+    <p><%= truncate(f.object.asset.filename.to_s) %></p>
   <% else%>
     <%= f.input :asset,  label: 'Add Asset' %>
   <% end %>

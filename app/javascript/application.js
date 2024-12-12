@@ -13,7 +13,6 @@ const preview = document.querySelector(".scene-preview")
 document.addEventListener('cocoon:after-insert', (e) => {
   let listCount = Array.from(layersList.querySelectorAll('.nested-fields')).length
   const recentLayer = Array.from(layersList.querySelectorAll('.nested-fields')).pop()
-  console.log(recentLayer)
 
   const layerId = generateUUID()
 
@@ -84,4 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
       viewer.classList.add("show")
     }, 2.5 * 1000)
   }
+
+  const switchButtons = document.querySelectorAll(".scene-switch-button")
+
+  switchButtons.forEach(button => {
+    button.addEventListener("click", async () => {
+      const sceneUrl = button.dataset.url
+      await fetch(sceneUrl)
+    })
+  })
 })

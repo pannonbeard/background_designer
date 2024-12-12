@@ -6,7 +6,7 @@
           <video src="<%= layer.asset.url %>" muted loop autoplay>
         </div>
       <% else %>
-        <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>')"></div>
+        <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>'); background-size: cover"></div>
       <% end %>
     <% end %>
   </div>

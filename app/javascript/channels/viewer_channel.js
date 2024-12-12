@@ -19,19 +19,21 @@ consumer.subscriptions.create("ViewerChannel", {
     //     location.href = `${location.origin}/viewer?scene=${data.slug}`
     //   }, 2.5 * 1000)
     // }
-    
-    let currentViewer = document.querySelector('.viewer.show')
-    document.querySelector('body').insertAdjacentHTML('afterbegin', data.html);
 
-    let nextViewer = document.querySelector(".viewer")
-    nextViewer.classList.add('show')
-    
-    setTimeout(() => {
-      currentViewer.classList.remove('show')
-    }, 2.5 * 1000)
-
-    setTimeout(() => {
-      currentViewer.remove()
-    }, 5 * 1000)
+    if(document.querySelector('.viewer.show')){
+      let currentViewer = document.querySelector('.viewer.show')
+      document.querySelector('body').insertAdjacentHTML('afterbegin', data.html);
+  
+      let nextViewer = document.querySelector(".viewer")
+      nextViewer.classList.add('show')
+      
+      setTimeout(() => {
+        currentViewer.classList.remove('show')
+      }, 2.5 * 1000)
+  
+      setTimeout(() => {
+        currentViewer.remove()
+      }, 5 * 1000)
+    }
   }
 });
