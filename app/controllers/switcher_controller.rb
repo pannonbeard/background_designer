@@ -1,5 +1,4 @@
 class SwitcherController < ApplicationController
-  
   def index
     ActiveStorage::Current.url_options = Rails.env.development? ? { host: 'localhost', port: 3000 } : { host: '192.168.68.112', port: 80 }
     @scene = Scene.find_by(slug: params[:scene_slug])

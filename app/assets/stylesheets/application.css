@@ -25,6 +25,10 @@
   height: 100%
  }
 
+ body {
+  padding: 0.5rem;
+ }
+
  button, .btn {
   display: inline-block;
   border: 2px solid cornflowerblue;

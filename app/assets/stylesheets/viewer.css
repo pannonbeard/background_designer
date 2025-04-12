@@ -26,7 +26,7 @@
   background-size: cover;
   background-repeat: no-repeat;
   & video{
-    height: 100%;
+    width: 100%;
   }
 }
 

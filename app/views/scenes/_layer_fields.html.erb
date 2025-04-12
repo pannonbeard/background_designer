@@ -1,7 +1,7 @@
 <div class='nested-fields layer-fields' data-layerid='<%= f.object.id %>'>
   <div class='shift-stack'>
-    <div class='shift-up'>^</div>
-    <div class='shift-down'>v</div>
+    <div class='shift-up'><span class="material-symbols-outlined">arrow_upward</span></div>
+    <div class='shift-down'><span class="material-symbols-outlined">arrow_downward</span></div>
   </div>
   <% if f.object.id %>
     <p><%= truncate(f.object.asset.filename.to_s) %></p>
@@ -10,5 +10,7 @@
   <% end %>
   <%= f.input :stack %>
 
-  <%= link_to_remove_association "X", f, class: 'btn' %>
+  <%= link_to_remove_association f, class: 'btn' do %>
+    <span class="material-symbols-outlined">close</span>
+  <% end %>
 </div>
