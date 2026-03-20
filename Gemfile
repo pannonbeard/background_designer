@@ -73,3 +73,5 @@ end
 gem "simple_form", "~> 5.2"
 
 gem "cocoon", "~> 1.2"
+
+gem "passenger", ">= 5.3.2", require: "phusion_passenger/rack_handler"

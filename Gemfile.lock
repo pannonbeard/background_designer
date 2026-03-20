@@ -182,6 +182,11 @@ GEM
     nokogiri (1.19.2-x86_64-linux-gnu)
       racc (~> 1.4)
     ostruct (0.6.3)
+    passenger (6.1.2)
+      logger (>= 1.7.0)
+      rack (>= 1.6.13)
+      rackup (>= 1.0.1)
+      rake (>= 12.3.3)
     pp (0.6.3)
       prettyprint
     prettyprint (0.2.0)
@@ -313,6 +318,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
+  passenger (>= 5.3.2)
   puma (>= 5.0)
   rails (~> 7.1.0)
   redis (>= 4.0.1)
