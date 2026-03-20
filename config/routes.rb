@@ -2,6 +2,8 @@
 #
 
 Rails.application.routes.draw do
+  resource :session
+  resources :passwords, param: :token
   resources :scenes do
     member do
       post :duplicate
