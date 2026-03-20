@@ -1,0 +1,27 @@
+<div>
+  <h1 class="font-bold text-4xl mb-4">Users</h1>
+  <%= link_to "New User", new_user_path, class: 'inline-block mb-4 px-4 py-2 border-1 border-gray-200 cursor-pointer hover:bg-gray-300' %>
+
+  <table>
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email Address</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td><%= user.first_name %></td>
+          <td><%= user.last_name %></td>
+          <td><%= user.email_address %></td>
+          <td>
+            <%= link_to 'Edit', edit_user_path(user), class: 'px-4 py-2 border-1 border-gray-200 cursor-pointer hover:bg-gray-300' %> 
+          </td>
+        <tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,27 @@
+<%= form_for user do |form| %>
+  <div>
+    <%= form.text_field :first_name, 
+      required: true, autofocus: true, 
+      placeholder: "Enter your first name", 
+      class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4'
+       %>
+  </div>
+  <div>
+    <%= form.text_field :last_name, 
+      required: true, autofocus: true, 
+      placeholder: "Enter your Last name", 
+      class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4'
+       %>
+  </div>
+  <div>
+    <%= form.email_field :email_address, 
+      required: true, autofocus: true, 
+      placeholder: "Enter your email address", 
+      class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4' %>
+  </div>
+  <div>
+    <%= form.password_field :password, class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4', 
+        placeholder: "Enter your password", maxlength: 72 %>
+  </div>
+  <%= form.submit class: 'px-4 py-2 border-1 border-gray-200 cursor-pointer hover:bg-gray-300'%>
+<% end %>
