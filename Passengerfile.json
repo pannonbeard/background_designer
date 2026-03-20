@@ -1,0 +1,9 @@
+{
+  "environment": "production",
+  "port": 30005,
+  "daemonize": false,
+  "log_file": "/var/log/myapp/passenger.log",
+  "pid_file": "/var/run/myapp/passenger.pid",
+  "max_pool_size": 4,
+  "min_instances": 2
+}
