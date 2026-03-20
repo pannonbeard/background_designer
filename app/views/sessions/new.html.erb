@@ -1,10 +1,16 @@
-<%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
-<%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
-
-<%= form_with url: session_path do |form| %>
-  <%= form.email_field :email_address, required: true, autofocus: true, autocomplete: "username", placeholder: "Enter your email address", value: params[:email_address] %><br>
-  <%= form.password_field :password, required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %><br>
-  <%= form.submit "Sign in" %>
+<%= form_with url: session_path, class: 'p-10 border-2 border-gray-200 rounded-md shadow-md' do |form| %>
+  <div>
+  <%= form.email_field :email_address, 
+    required: true, autofocus: true, 
+    autocomplete: "username", placeholder: "Enter your email address", 
+    class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4',
+    value: params[:email_address] %>
+  </div>
+  <div>
+    <%= form.password_field :password, class: 'px-4 py-2 border-1 border-gray-200 w-full mb-4', 
+      required: true, autocomplete: "current-password", placeholder: "Enter your password", maxlength: 72 %>
+  </div>
+  <%= form.submit "Sign in", class: 'px-4 py-2 border-1 border-gray-200 cursor-pointer hover:bg-gray-300'%>
 <% end %>
 <br>
 

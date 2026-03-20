@@ -7,12 +7,30 @@
     <%= csp_meta_tag %>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <%= stylesheet_link_tag "tailwind", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <%= yield %>
+    <% unless authenticated? %>
+      <%= render 'layouts/login' %>
+    <% else %>
+      <aside></aside>
+      <header class=''>
+        <nav>
+          <% if authenticated? %>
+            <%= button_to 'Sign Out', session_path, method: :delete %>
+          <% end %>
+        </nav>
+      </header>
+      <main class="container mx-auto mt-28 px-5 flex">
+        <%= tag.div(flash[:alert], style: "color:red") if flash[:alert] %>
+        <%= tag.div(flash[:notice], style: "color:green") if flash[:notice] %>
+
+        <%= yield %>
+      </main>
+    <% end %>
   </body>
 </html>
