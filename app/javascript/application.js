@@ -11,6 +11,8 @@ const layersList = document.querySelector('.scene-layers')
 const preview = document.querySelector(".scene-preview")
 
 document.addEventListener('cocoon:after-insert', (e) => {
+  if(!layersList){return}
+
   let listCount = Array.from(layersList.querySelectorAll('.nested-fields')).length
   const recentLayer = Array.from(layersList.querySelectorAll('.nested-fields')).pop()
 
@@ -89,7 +91,11 @@ document.addEventListener('DOMContentLoaded', () => {
   switchButtons.forEach(button => {
     button.addEventListener("click", async () => {
       const sceneUrl = button.dataset.url
+      button.innerText = "Switching..."
       await fetch(sceneUrl)
+
+      button.innerText = "Switch To"
+
     })
   })
 })
