@@ -9,7 +9,7 @@ servers:
   web:
     hosts:
       - 10.0.0.205
-    proxy: false
+    # proxy: false
   # job:
   #   hosts:
   #     - 192.168.0.1
@@ -24,7 +24,10 @@ proxy:
   host: tableav.ttrpgs.life
 
   # Proxy connects to your container on port 80 by default.
-  # app_port: 3000
+  app_port: 30005
+  run:
+    http_port: 30005
+    https_port: 30055
 
 # Credentials for your image host.
 registry:
