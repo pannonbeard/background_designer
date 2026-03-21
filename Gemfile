@@ -6,7 +6,8 @@ ruby "3.2.2"
 gem "rails", "~> 8.0"
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
-gem "sprockets-rails"
+# gem "sprockets-rails"
+gem 'propshaft'
 
 # Use sqlite3 as the database for Active Record
 gem "sqlite3", "~> 2"
@@ -43,6 +44,11 @@ gem "bootsnap", require: false
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 gem "image_processing", "~> 1.2"
+
+# Use the database-backed adapters for Rails.cache, Active Job, and Action Cable
+gem "solid_cache"
+gem "solid_queue"
+gem "solid_cable"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
