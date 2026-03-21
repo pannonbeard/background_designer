@@ -66,3 +66,148 @@ table{
 
   
 }
+
+.input{
+  & label{
+    display: block;
+    font-weight: bold;
+  }
+
+  & input:not([type=file]) {
+    width: 100%;
+    border: 2px solid #eee;
+    padding: 0.5rem 0.75rem;
+  }
+}
+
+.scene-form{
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  height: 100%
+}
+
+.scene-options{
+  background: #ddd;
+  padding: 1rem;
+}
+
+.scene-preview{
+  background: black;
+  position: relative;
+}
+
+.layer-fields {
+  padding: 0.5rem;
+  border-bottom: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+
+  .file{
+    input{
+      display: none;
+    }
+    label{
+      display: block;
+      background: cornflowerblue;
+      color: white;
+      padding: 0.5rem 0.75rem;
+      cursor: pointer;
+      border: 2px solid cornflowerblue;
+
+      &:hover{
+        background: white;
+        color: cornflowerblue;
+      }
+    }
+  }
+  
+}
+
+.scene-preview--layer{
+  position: absolute;
+  top: 0;
+  left: 0;
+  inset: 0;
+
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  & video{
+    height: 100%;
+    filter: chroma(color=#0000ff);
+  }
+}
+
+.shift-stack{
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: grid;
+
+  .shift-up, .shift-down{
+    font-weight: bold;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    &:hover{
+      background-color: #ccc;
+    }
+  }
+}
+
+
+.scenes-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 0.5rem;
+}
+
+.scene-box{
+  background: #eee;
+  border: 1px solid black;
+  display: grid;
+}
+
+.scene-preview{
+  min-height: 200px;
+  background: black;
+}
+
+.scene-buttons{
+  padding: 1rem;
+}
+
+.viewer-background{
+  background: black;
+}
+
+.viewer{
+  background: black;
+  position: fixed;
+  inset: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  opacity: 0;
+  transition: opacity 2.5s ease-in-out;
+}
+
+.viewer.show{
+  opacity: 1;
+}
+
+.view-scene-layer{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  & video{
+    width: 100%;
+  }
+}
+
