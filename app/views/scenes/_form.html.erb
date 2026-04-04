@@ -1,12 +1,14 @@
-<div class='scene-form'>
-  <div class='scene-preview'>
-    <% @scene.layers.each do |layer| %>
+<div class='scene-form' data-controller='scene-layer'>
+  <div class='scene-preview' data-scene-layer-target='previewHolder'>
+    <% @scene.layers.each_with_index do |layer, index| %>
       <% if layer.asset.content_type.include?('video') %>
-        <div class='scene-preview--layer' data-layerId='<%= layer.id %>'>
+        <div class='scene-preview--layer' data-index='<%= index %>' data-scene-layer-target='preview'>
           <video src="<%= layer.asset.url %>" muted loop autoplay>
         </div>
       <% else %>
-        <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>'); background-size: cover"></div>
+        <div class='scene-preview--layer' data-index='<%= index %>' 
+             style="background-image: url('<%= layer.asset.url %>'); background-size: cover" 
+             data-scene-layer-target='preview'></div>
       <% end %>
     <% end %>
   </div>
@@ -18,7 +20,7 @@
     <div class='links'>
       Layers <%= link_to_add_association '+', f, :layers, "data-association-insertion-node": '.scene-layers', "data-association-insertion-method": 'append', class: "btn" %>
     </div>
-    <div class='scene-layers'>
+    <div class='scene-layers' >
       <%= f.simple_fields_for :layers do |layer| %>
         <%= render 'layer_fields', f: layer %>
       <% end %>
