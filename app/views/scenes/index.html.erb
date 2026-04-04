@@ -9,7 +9,7 @@
         <% scene.layers.each do |layer| %>
           <% if layer.asset.content_type.include?('video') %>
             <div class='scene-preview--layer' data-layerId='<%= layer.id %>'>
-              <video src="<%= layer.asset.url %>" muted loop autoplay>
+              <video src="<%= layer.asset.url %>" muted>
             </div>
           <% else %>
             <div class='scene-preview--layer' style="background-image: url('<%= layer.asset.url %>'); background-size: cover"></div>
